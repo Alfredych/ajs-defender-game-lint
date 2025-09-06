@@ -18,4 +18,4 @@ keywords - game
 author - ваше имя или псевдоним
 license - ISC
 
-Добавьте .gitignore, который мы для вас [приготовили] (https://github.com/netology-code/ajs-homeworks/blob/master/.gitignore.)
+Добавьте .gitignore, который мы для вас [приготовили](https://github.com/netology-code/ajs-homeworks/blob/master/.gitignore.)
