@@ -5,19 +5,28 @@
   "keywords": [
     "game"
   ],
-  "homepage": "https://github.com/Alfredych/ajs-defender-game#readme",
+  "homepage": "https://github.com/Alfredych/ajs-defender-game-babel#readme",
   "bugs": {
-    "url": "https://github.com/Alfredych/ajs-defender-game/issues"
+    "url": "https://github.com/Alfredych/ajs-defender-game-babel/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Alfredych/ajs-defender-game.git"
+    "url": "git+https://github.com/Alfredych/ajs-defender-game-babel.git"
   },
   "license": "ISC",
   "author": "Alfredovich",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.4",
+    "@babel/preset-env": "^7.28.3"
+  },
+  "dependencies": {
+    "core-js": "^3.45.1"
   }
 }

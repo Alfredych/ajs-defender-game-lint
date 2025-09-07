@@ -85,3 +85,6 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+# Catalog of support for outdated versions
+dist/
