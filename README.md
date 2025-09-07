@@ -10,15 +10,17 @@
 1. Установите Babel (npm install --save-dev @babel/core @babel/cli @babel/preset-env).
 2. Установите CoreJS (npm install core-js@3).
 3. Настройте скрипт запуска build для сборки с помощью npm. Для этого в секции scripts файла package.json пропишите:
+
     {
-      ...
-      "scripts": {
-        ...
-        "build": "babel src -d dist"
-        ...
-      }
-    }
-3. Создайте конфиг babel.config.json и пропишите @babel/preset-env:
+      ...  
+      "scripts": {  
+        ...  
+        "build": "babel src -d dist"  
+        ...  
+      }  
+    }  
+
+4. Создайте конфиг babel.config.json и пропишите @babel/preset-env:
    
     {  
       "presets": [  
@@ -32,7 +34,7 @@
       ]  
     }  
 
-4. Создайте файл src/app.js со следующим содержимым:
+5. Создайте файл src/app.js со следующим содержимым:
 
     const characters = [  
       {name: 'мечник', health: 10},  
