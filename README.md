@@ -1,50 +1,70 @@
-# ajs-defender-game-babel
+# ajs-defender-game-lint
 Домашнее задание к занятию "Стандарты и рабочее окружение" модуля "Продвинутый JavaScript и основы React"
 
-## Babel
+## BESLint (задача со звёздочкой)
+**Важно:** данная задача не является обязательной
+
 ### Легенда
-Как вы уже видели, некоторые проекты требуют для своей работы совместимости с текущей поддерживаемой версией языка. Но при этом есть большое желание использовать новейшие возможности ES. И для этого есть специальный инструмент, который позволяет осуществлять компиляцию кода на ES6+ в поддерживаемые на данный момент возможности - [Babel](https://babeljs.io/). Поэтому вы приняли следующее решение: писать всё на новейшей версии языка и с помощью Babel обеспечить себе наибольшее количество пользователей.
+Очень важно следить за качеством кода в вашем проекте и следовать единым принципам кодирования в команде. В этом нам поможет ещё один инструмент - ESLint.
 
 ### Описание
-Ваша задача подключить Babel к проекту и настроить сборку с его использованием.
-1. Установите Babel (npm install --save-dev @babel/core @babel/cli @babel/preset-env).
-2. Установите CoreJS (npm install core-js@3).
-3. Настройте скрипт запуска build для сборки с помощью npm. Для этого в секции scripts файла package.json пропишите:
+Ваша задача «прикрутить» ESLint к проекту и настроить работу с его использованием.
 
-    {
-      ...  
-      "scripts": {  
-        ...  
-        "build": "babel src -d dist"  
-        ...  
-      }  
-    }  
+Установка:
 
-4. Создайте конфиг babel.config.json и пропишите @babel/preset-env:
-   
+    npm install --save-dev eslint  
+    npx eslint --init  
+
+При инициализации конфиг-файла выберите те же опции, что указаны в лекции:
+
+* How would you like to use ESLint? · problems
+* What type of modules does your project use? · esm
+* Which framework does your project use? · none
+* Does your project use TypeScript? · No
+* Where does your code run? · browser, node
+* What format do you want your config file to be in? · JavaScript
+  
+Настройте скрипт запуска lint для npm. Для этого в секции scripts файла package.json пропишите:
+
     {  
-      "presets": [  
-        [  
-          "@babel/preset-env",  
-          {  
-            "useBuiltIns": "entry",  
-            "corejs": "3.22"  
-          }  
-        ]  
-      ]  
-    }  
+        ...  
+        "scripts": {  
+            ...  
+            "lint": "eslint ."  
+            ...  
+        }  
+    }
 
-5. Создайте файл src/app.js со следующим содержимым:
+Создайте файл src/app.js со следующим содержимым:
 
     const characters = [  
       {name: 'мечник', health: 10},  
       {name: 'маг', health: 100},  
       {name: 'маг', health: 0},  
-      {name: 'лучник', health: 0},  
+      {name: 'лучник', health: 0}  
     ];  
 
     const alive = characters.filter(item => item.health > 0);
 
+Содержимое .eslintignore:
 
-5. Удостоверьтесь, что проект собирается, если в консоли запустить команду npm run build, и в каталоге dist формируется преобразованный Babel код.
-6. Добавьте каталог dist в .gitignore.
+    dist
+
+Содержимое .eslintrc.js:
+
+    module.exports = {  
+      'env': {  
+        'browser': true,  
+        'es2021': true,  
+        'node': true  
+      },  
+      'extends': 'eslint:recommended',  
+      'overrides': [],  
+      'parserOptions': {  
+        'ecmaVersion': 'latest',  
+        'sourceType': 'module'  
+      },  
+      'rules': {}
+    }
+
+Запустите ESLint и удостоверьтесь, что вам показываются ошибки стиля. Исправьте их, затем снова запустите ESLint и удостоверьтесь, что исправлены все ошибки проверки стиля.
