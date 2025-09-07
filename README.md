@@ -19,25 +19,30 @@
       }
     }
 3. Создайте конфиг babel.config.json и пропишите @babel/preset-env:
-    {
-      "presets": [
-        [
-          "@babel/preset-env",
-          {
-            "useBuiltIns": "entry",
-            "corejs": "3.22"
-          }
-        ]
-      ]
-    }
-4. Создайте файл src/app.js со следующим содержимым:
-    const characters = [
-      {name: 'мечник', health: 10},
-      {name: 'маг', health: 100},
-      {name: 'маг', health: 0},
-      {name: 'лучник', health: 0},
-    ];
+   
+    {  
+      "presets": [  
+        [  
+          "@babel/preset-env",  
+          {  
+            "useBuiltIns": "entry",  
+            "corejs": "3.22"  
+          }  
+        ]  
+      ]  
+    }  
 
-  const alive = characters.filter(item => item.health > 0);
+4. Создайте файл src/app.js со следующим содержимым:
+
+    const characters = [  
+      {name: 'мечник', health: 10},  
+      {name: 'маг', health: 100},  
+      {name: 'маг', health: 0},  
+      {name: 'лучник', health: 0},  
+    ];  
+
+    const alive = characters.filter(item => item.health > 0);
+
+
 5. Удостоверьтесь, что проект собирается, если в консоли запустить команду npm run build, и в каталоге dist формируется преобразованный Babel код.
 6. Добавьте каталог dist в .gitignore.
